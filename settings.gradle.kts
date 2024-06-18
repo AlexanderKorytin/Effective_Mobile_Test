@@ -1,3 +1,4 @@
+include(":util")
 pluginManagement {
     repositories {
         google {
@@ -21,3 +22,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Effective_Mobile_Test"
 include(":app")
+include(":network")
+include(":util")
