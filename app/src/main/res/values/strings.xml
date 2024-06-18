@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Effective_Mobile_Test</string>
+    <string name="tickets">авиабилеты</string>
+    <string name="hotels">отели</string>
+    <string name="in_short">короче</string>
+    <string name="subscriptions">подписки</string>
+    <string name="profile">профиль</string>
 </resources>
