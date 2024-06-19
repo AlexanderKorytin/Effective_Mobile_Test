@@ -12,8 +12,10 @@ activity = "1.9.0"
 constraintlayout = "2.1.4"
 navigationFragment = "2.7.7"
 navigation = "2.7.7"
+fragment_version = "1.8.0"
 
 [libraries]
+fragments = {group = "androidx.fragment", name = "fragment", version.ref = "fragment_version"}
 navigation = {group = "androidx.navigation", name ="navigation-ui-ktx",version.ref = "navigation"}
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

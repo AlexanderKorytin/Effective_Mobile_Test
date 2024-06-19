@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation(project(path = ":util"))
+    implementation(libs.fragments)
     implementation(libs.navigation)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.core.ktx)
