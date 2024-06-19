@@ -1,4 +1,4 @@
 <resources>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="subscriptions_fragment">subscriptions fragment</string>
+    <string name="fragment_placeholder">Этот экран еще в разработке</string>
 </resources>

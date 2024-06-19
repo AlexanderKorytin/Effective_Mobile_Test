@@ -7,4 +7,5 @@
     <include app:graph="@navigation/hotels_graph" />
     <include app:graph="@navigation/location_graph" />
     <include app:graph="@navigation/subscriptions_graph" />
+    <include app:graph="@navigation/profile_graph" />
 </navigation>
