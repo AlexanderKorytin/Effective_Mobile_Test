@@ -14,6 +14,10 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -33,7 +37,9 @@ android {
 }
 
 dependencies {
-
+    implementation(project(path = ":util"))
+    implementation(libs.navigation)
+    implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
