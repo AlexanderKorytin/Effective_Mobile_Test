@@ -38,6 +38,11 @@ android {
 
 dependencies {
     implementation(project(path = ":util"))
+    implementation(project(path = ":network"))
+    implementation(libs.retrofit)
+    implementation(libs.coroutines)
+    implementation(libs.koin)
+    implementation(libs.glide)
     implementation(libs.fragments)
     implementation(libs.navigation)
     implementation(libs.androidx.navigation.fragment)
