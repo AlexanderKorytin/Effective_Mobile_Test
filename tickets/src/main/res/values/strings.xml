@@ -1,4 +1,5 @@
 <resources>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="main_fragment">Main Fragment</string>
+    <string name="no_internet_error_text">Нет интернета</string>
+    <string name="server_error">Ошибка сервера</string>
 </resources>
