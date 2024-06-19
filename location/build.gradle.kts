@@ -1,23 +1,20 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 android {
-    namespace = "com.example.effective_mobile_test"
+    namespace = "com.example.location"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.effective_mobile_test"
         minSdk = 29
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 
@@ -40,16 +37,13 @@ android {
 }
 
 dependencies {
-    implementation(project(path = ":tickets"))
-    implementation(project(path = ":hotels"))
-    implementation(project(path = ":location"))
+    implementation(project(path = ":util"))
+    implementation(libs.fragments)
     implementation(libs.navigation)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

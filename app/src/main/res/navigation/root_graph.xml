@@ -5,4 +5,5 @@
     app:startDestination="@id/tickets_graph">
     <include app:graph="@navigation/tickets_graph" />
     <include app:graph="@navigation/hotels_graph" />
+    <include app:graph="@navigation/location_graph" />
 </navigation>
