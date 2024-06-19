@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Effective_Mobile_Test"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".core.ui.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">

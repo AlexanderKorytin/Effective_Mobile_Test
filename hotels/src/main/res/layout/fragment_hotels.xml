@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".HotelsFragment">
+    tools:context=".presentation.ui.HotelsFragment">
 
     <ImageView
         android:layout_width="@dimen/_64dp"

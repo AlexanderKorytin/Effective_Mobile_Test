@@ -1,9 +1,6 @@
-package com.example.subscription
+package com.example.subscription.presentation.ui
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.example.subscription.databinding.FragmentSubscriptionsBinding
 import com.example.util.BindingFragment

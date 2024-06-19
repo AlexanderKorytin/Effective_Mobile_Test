@@ -1,4 +1,4 @@
-package com.example.tickets
+package com.example.tickets.presentation.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

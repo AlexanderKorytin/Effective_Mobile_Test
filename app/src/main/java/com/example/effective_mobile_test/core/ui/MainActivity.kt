@@ -1,12 +1,11 @@
-package com.example.effective_mobile_test
+package com.example.effective_mobile_test.core.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.effective_mobile_test.R
 import com.example.effective_mobile_test.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

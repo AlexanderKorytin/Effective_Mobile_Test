@@ -1,9 +1,6 @@
-package com.example.location
+package com.example.location.presentation.ui
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.example.location.databinding.FragmentLocationBinding
 import com.example.util.BindingFragment

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SubscriptionsFragment">
+    tools:context=".presentation.ui.SubscriptionsFragment">
 
     <ImageView
         android:layout_width="@dimen/_64dp"
