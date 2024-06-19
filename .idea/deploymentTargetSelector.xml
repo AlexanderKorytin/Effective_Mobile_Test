@@ -16,9 +16,6 @@
       <SelectionState runConfigName="network">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="resources">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="util">
         <option name="selectionMode" value="DROPDOWN" />
         <DropdownSelection timestamp="2024-06-18T20:51:22.612624Z">
@@ -29,9 +26,6 @@
           </Target>
         </DropdownSelection>
         <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="utilites">
-        <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
   </component>

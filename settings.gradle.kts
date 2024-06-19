@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 rootProject.name = "Effective_Mobile_Test"
 include(":app")
 include(":network")
+include(":tickets")
