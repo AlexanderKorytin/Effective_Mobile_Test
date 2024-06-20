@@ -7,6 +7,7 @@ import com.example.tickets.data.storage.api.DataStorage
 import com.example.tickets.domain.api.repositories.MainRepository
 import com.example.tickets.domain.models.OfferData
 import com.example.tickets.domain.models.SearchResultData
+import com.example.tickets.domain.models.Town
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -39,7 +40,11 @@ class MainRepositoryImpl(private val client: NetworkClient, private val storage:
             }
         }
 
-    override fun getDepartureTown(): String {
-        return storage.getDepartureTown()
+    override fun getDepartureTown(): Town {
+        return Town(name = storage.getDepartureTown())
+    }
+
+    override fun setDepartureTown(town: Town) {
+        storage.setDepartureTown(town.name)
     }
 }
