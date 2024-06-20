@@ -10,4 +10,8 @@ class MainInteractorImpl(private val repository: MainRepository) : MainInteracto
     override suspend fun getMainData(): Flow<SearchResultData<List<MainData>>> {
         return repository.getMainData()
     }
+
+    override fun getCurrentTown(): String {
+        return repository.getDepartureTown()
+    }
 }

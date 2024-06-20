@@ -3,6 +3,7 @@ package com.example.tickets.data.repository.impl
 import com.example.data.client.api.NetworkClient
 import com.example.tickets.R
 import com.example.tickets.data.convrtors.map
+import com.example.tickets.data.storage.api.DataStorage
 import com.example.tickets.domain.api.repositories.MainRepository
 import com.example.tickets.domain.models.MainData
 import com.example.tickets.domain.models.SearchResultData
@@ -12,7 +13,8 @@ import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
-class MainRepositoryImpl(private val client: NetworkClient) : MainRepository {
+class MainRepositoryImpl(private val client: NetworkClient, private val storage: DataStorage) :
+    MainRepository {
     override suspend fun getMainData(): Flow<SearchResultData<List<MainData>>> =
         flow {
             val searchResult = client.getMainData()
@@ -36,4 +38,8 @@ class MainRepositoryImpl(private val client: NetworkClient) : MainRepository {
                 }
             }
         }
+
+    override fun getDepartureTown(): String {
+        return storage.getDepartureTown()
+    }
 }

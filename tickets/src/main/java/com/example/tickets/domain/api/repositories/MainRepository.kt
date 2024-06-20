@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MainRepository {
     suspend fun getMainData(): Flow<SearchResultData<List<MainData>>>
+    fun getDepartureTown(): String
 }
