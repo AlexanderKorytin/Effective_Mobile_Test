@@ -23,7 +23,11 @@ class MainRepositoryImpl(private val client: NetworkClient, private val storage:
             val error = searchResult.exceptionOrNull()
             when {
                 data != null -> {
-                    emit(SearchResultData.Data(data.offers.map { map(it) }))
+                    if (data.offers != null) {
+                        emit(SearchResultData.Data(data.offers.map { map(it) }))
+                    } else {
+                        emit(SearchResultData.Empty(R.string.server_error))
+                    }
                 }
 
                 error is ConnectException -> {
