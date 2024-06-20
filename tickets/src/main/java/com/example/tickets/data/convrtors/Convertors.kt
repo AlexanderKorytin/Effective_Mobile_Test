@@ -8,6 +8,9 @@ import com.example.tickets.domain.models.Badge
 import com.example.tickets.domain.models.MainData
 import com.example.tickets.domain.models.RecommendTicket
 import com.example.tickets.domain.models.TicketItem
+import java.text.SimpleDateFormat
+import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 fun map(dto: Offer): MainData {
     return MainData(
@@ -47,8 +50,16 @@ private fun getBadge(badge: String?): Badge {
     }
 }
 
-private fun getDuration(begin: String, end: String): String {
-    TODO()
+private fun getDuration(startTime: String, endTime: String): String {
+    val arrivalTime = endTime.replace(DATE_DELIMITER, EMPTY)
+    val destinationTime = startTime.replace(DATE_DELIMITER, EMPTY)
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    val duration = (dateFormat.parse(arrivalTime)?.time ?: EMPTY_TIME) - (dateFormat.parse(
+        destinationTime
+    )?.time ?: EMPTY_TIME)
+    val timeFormat = TimeUnit.MILLISECONDS.toMinutes(duration)
+    val result = String.format(Locale.getDefault(), "%.1f", timeFormat.toFloat() / TO_HOURS)
+    return result
 }
 
 private fun getPrice(value: Int): String {
@@ -69,3 +80,6 @@ private fun getTimeRange(listTime: List<String>): String {
 private const val PATTERN = "#,###"
 private const val DELIMITER = ","
 private const val EMPTY = " "
+private const val DATE_DELIMITER = "T"
+private const val TO_HOURS = 60
+private const val EMPTY_TIME = 0L
