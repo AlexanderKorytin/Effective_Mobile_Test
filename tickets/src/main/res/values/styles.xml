@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MainEditTextStyle">
+        <item name="android:background">@null</item>
+        <item name="android:digits">аьгдеёжзийклмнопрстуфхцчшщъыьэюя АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫБЭЮЯ</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:hint">@string/arrival_hint</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingVertical">@dimen/_8dp</item>
+        <item name="android:paddingStart">@dimen/_1dp</item>
+        <item name="android:textColorHint">@color/grey6</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">@dimen/_16sp</item>
+    </style>
+</resources>
