@@ -1,4 +1,4 @@
-include(":util")
+
 
 pluginManagement {
     repositories {
@@ -29,3 +29,4 @@ include(":hotels")
 include(":location")
 include(":subscriptions")
 include(":profile")
+include(":util")
