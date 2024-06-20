@@ -3,8 +3,8 @@ package com.example.tickets.data.repository.impl
 import com.example.data.client.api.NetworkClient
 import com.example.tickets.R
 import com.example.tickets.data.convrtors.map
-import com.example.tickets.domain.api.repositories.MainRepository
-import com.example.tickets.domain.models.MainData
+import com.example.tickets.domain.api.repositories.CheckedTicketsRepository
+import com.example.tickets.domain.models.RecommendTicket
 import com.example.tickets.domain.models.SearchResultData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -12,15 +12,15 @@ import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
-class MainRepositoryImpl(private val client: NetworkClient) : MainRepository {
-    override suspend fun getMainData(): Flow<SearchResultData<List<MainData>>> =
+class CheckedTicketsRepositoryImpl(private val client: NetworkClient) : CheckedTicketsRepository {
+    override suspend fun getRecommendTickets(): Flow<SearchResultData<List<RecommendTicket>>> =
         flow {
-            val searchResult = client.getMainData()
+            val searchResult = client.getRecommendTickets()
             val data = searchResult.getOrNull()
             val error = searchResult.exceptionOrNull()
             when {
                 data != null -> {
-                    emit(SearchResultData.Data(data.offers.map { map(it) }))
+                    emit(SearchResultData.Data(data.tickets.map { map(it) }))
                 }
 
                 error is ConnectException -> {
