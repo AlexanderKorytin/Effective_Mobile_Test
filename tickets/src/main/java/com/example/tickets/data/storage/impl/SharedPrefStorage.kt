@@ -5,7 +5,7 @@ import com.example.tickets.data.storage.api.DataStorage
 
 class SharedPrefStorage(private val sharedPref: SharedPreferences) : DataStorage {
     override fun setDepartureTown(town: String) {
-        sharedPref.edit().putString(town, TOWN).apply()
+        sharedPref.edit().putString(TOWN, town).apply()
     }
 
     override fun getDepartureTown(): String {
