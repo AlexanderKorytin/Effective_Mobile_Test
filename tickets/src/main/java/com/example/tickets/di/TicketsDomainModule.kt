@@ -16,7 +16,7 @@ import org.koin.dsl.module
 
 val aminDomainModule = module {
     single<MainRepository> {
-        MainRepositoryImpl(client = get())
+        MainRepositoryImpl(client = get(), storage = get())
     }
     single<CheckedTicketsRepository> {
         CheckedTicketsRepositoryImpl(client = get())
