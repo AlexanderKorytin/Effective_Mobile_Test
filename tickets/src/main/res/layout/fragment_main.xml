@@ -76,9 +76,9 @@
 
                 <EditText
                     android:id="@+id/departure"
+                    style="@style/MainEditTextStyle"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
-                    style="@style/MainEditTextStyle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/divider"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -97,9 +97,9 @@
 
                 <EditText
                     android:id="@+id/arrival"
+                    style="@style/MainEditTextStyle"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
-                    style="@style/MainEditTextStyle"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/divider"
@@ -135,5 +135,45 @@
         app:layout_constraintStart_toStartOf="@id/left_guideline"
         app:layout_constraintTop_toBottomOf="@id/music_title"
         tools:listitem="@layout/offer_item" />
+
+    <TextView
+        android:id="@+id/no_internet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:textColor="@color/grey7"
+        android:textFontWeight="600"
+        android:textSize="@dimen/_22sp"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_68dp"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@id/music_title" />
+
+
+    <TextView
+        android:id="@+id/server_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:textColor="@color/grey7"
+        android:textFontWeight="600"
+        android:textSize="@dimen/_22sp"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_68dp"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@id/music_title" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_68dp"
+        app:layout_constraintEnd_toEndOf="@id/right_guideline"
+        app:layout_constraintStart_toStartOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@id/music_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
