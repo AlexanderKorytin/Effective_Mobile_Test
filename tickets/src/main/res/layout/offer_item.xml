@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/ic_image_offer"
             android:layout_width="@dimen/_132dp"
             android:layout_height="@dimen/_132dp"
             android:background="@color/black"
