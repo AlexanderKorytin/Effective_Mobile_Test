@@ -1,6 +1,6 @@
 package com.example.tickets.domain.models
 
-data class MainData(
+data class OfferData(
     val id: Int,
     val price: String,
     val title: String,
