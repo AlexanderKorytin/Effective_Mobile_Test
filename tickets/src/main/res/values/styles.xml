@@ -3,7 +3,7 @@
 
     <style name="MainEditTextStyle">
         <item name="android:background">@null</item>
-        <item name="android:digits">аьгдеёжзийклмнопрстуфхцчшщъыьэюя АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫБЭЮЯ</item>
+        <item name="android:digits">абвгдеёжзийклмнопрстуфхцчшщъыьэюя АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫБЭЮЯ</item>
         <item name="android:fontFamily">@font/sf_pro_display_medium</item>
         <item name="android:hint">@string/arrival_hint</item>
         <item name="android:inputType">text</item>
