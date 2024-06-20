@@ -5,15 +5,15 @@ import com.example.data.models.main.Offer
 import com.example.data.models.search.TicketsOffer
 import com.example.data.models.tickets.Ticket
 import com.example.tickets.domain.models.Badge
-import com.example.tickets.domain.models.MainData
+import com.example.tickets.domain.models.OfferData
 import com.example.tickets.domain.models.RecommendTicket
 import com.example.tickets.domain.models.TicketItem
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
-fun map(dto: Offer): MainData {
-    return MainData(
+fun map(dto: Offer): OfferData {
+    return OfferData(
         id = dto.id,
         title = dto.title,
         town = dto.town,

@@ -5,7 +5,7 @@ import com.example.tickets.R
 import com.example.tickets.data.convrtors.map
 import com.example.tickets.data.storage.api.DataStorage
 import com.example.tickets.domain.api.repositories.MainRepository
-import com.example.tickets.domain.models.MainData
+import com.example.tickets.domain.models.OfferData
 import com.example.tickets.domain.models.SearchResultData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -15,7 +15,7 @@ import java.net.SocketTimeoutException
 
 class MainRepositoryImpl(private val client: NetworkClient, private val storage: DataStorage) :
     MainRepository {
-    override suspend fun getMainData(): Flow<SearchResultData<List<MainData>>> =
+    override suspend fun getMainData(): Flow<SearchResultData<List<OfferData>>> =
         flow {
             val searchResult = client.getMainData()
             val data = searchResult.getOrNull()
