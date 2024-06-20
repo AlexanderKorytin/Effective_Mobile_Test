@@ -14,7 +14,7 @@ import com.example.tickets.domain.impl.CheckedTicketsInteractorImpl
 import com.example.tickets.domain.impl.MainInteractorImpl
 import org.koin.dsl.module
 
-val aminDomainModule = module {
+val ticketsDomainModule = module {
     single<MainRepository> {
         MainRepositoryImpl(client = get(), storage = get())
     }
