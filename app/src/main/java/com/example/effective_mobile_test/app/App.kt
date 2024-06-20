@@ -4,7 +4,9 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.di.networkModule
 import com.example.di.utilModule
-import com.example.tickets.di.aminDomainModule
+import com.example.tickets.di.ticketsDataModule
+import com.example.tickets.di.ticketsDomainModule
+import com.example.tickets.di.ticketsViewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -17,7 +19,9 @@ class App : Application() {
             modules(
                 utilModule,
                 networkModule,
-                aminDomainModule,
+                ticketsDataModule,
+                ticketsDomainModule,
+                ticketsViewModelModule
             )
         }
     }
