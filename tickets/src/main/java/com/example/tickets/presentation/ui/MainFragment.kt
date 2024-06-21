@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.lifecycleScope
 import com.example.tickets.databinding.FragmentMainBinding
 import com.example.tickets.domain.models.OfferData
 import com.example.tickets.presentation.adapters.OfferAdapter
-import com.example.tickets.presentation.models.main.MainScreenState
+import com.example.tickets.presentation.models.main.MainScreeState
+import com.example.tickets.presentation.models.main.MainScreenStateResponse
 import com.example.tickets.presentation.viewmodels.main.MainViewModel
 import com.example.util.BindingFragment
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : BindingFragment<FragmentMainBinding>() {
@@ -34,8 +38,11 @@ class MainFragment : BindingFragment<FragmentMainBinding>() {
 
     private fun bind() {
         viewModel.getMainData()
-        viewModel.mainScreenState.observe(viewLifecycleOwner) { result ->
-            render(result = result)
+        lifecycleScope.launch(Dispatchers.Main) {
+            viewModel.mainScreenState.collect { result ->
+                render(result = result)
+
+            }
         }
         binding.departure.doAfterTextChanged { text ->
             val townName = if (text.isNullOrEmpty()) {
@@ -47,22 +54,22 @@ class MainFragment : BindingFragment<FragmentMainBinding>() {
         }
     }
 
-    private fun render(result: MainScreenState) {
-        when (result) {
-            is MainScreenState.Content -> {
-                showContent(data = result.offers, townName = result.town.name)
+    private fun render(result: MainScreeState) {
+        when (result.data) {
+            is MainScreenStateResponse.Content -> {
+                showContent(data = result.data.offers, townName = result.departureTown.name)
             }
 
-            is MainScreenState.Error -> {
-                showError(message = result.message, townName = result.town.name)
+            is MainScreenStateResponse.Error -> {
+                showError(message = result.data.message, townName = result.departureTown.name)
             }
 
-            is MainScreenState.NoInternet -> {
-                showError(message = result.message, townName = result.town.name)
+            is MainScreenStateResponse.NoInternet -> {
+                showError(message = result.data.message, townName = result.departureTown.name)
             }
 
-            is MainScreenState.IsLoading -> {
-                showLoading(result.town.name)
+            is MainScreenStateResponse.IsLoading -> {
+                showLoading(result.departureTown.name)
             }
         }
     }
