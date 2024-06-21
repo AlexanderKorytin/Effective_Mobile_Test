@@ -58,7 +58,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>() {
             }
 
             is MainScreenState.NoInternet -> {
-                showNoInternet(message = result.message, townName = result.town.name)
+                showError(message = result.message, townName = result.town.name)
             }
 
             is MainScreenState.IsLoading -> {
@@ -70,41 +70,28 @@ class MainFragment : BindingFragment<FragmentMainBinding>() {
     private fun showContent(data: List<OfferData>, townName: String) = with(binding) {
         loading.isVisible = false
         offers.isVisible = true
-        serverError.isVisible = false
-        noInternet.isVisible = false
+        tvError.isVisible = false
+
         if (townName.isNotEmpty()) {
             departure.setText(townName)
         }
         offersAdapter.submitList(data)
     }
 
-    private fun showNoInternet(@StringRes message: Int, townName: String) = with(binding) {
-        loading.isVisible = false
-        offers.isVisible = false
-        serverError.isVisible = false
-        noInternet.isVisible = true
-        if (townName.isNotEmpty()) {
-            departure.setText(townName)
-        }
-        noInternet.text = getString(message)
-    }
-
     private fun showError(@StringRes message: Int, townName: String) = with(binding) {
         loading.isVisible = false
         offers.isVisible = false
-        serverError.isVisible = true
-        noInternet.isVisible = false
+        tvError.isVisible = true
         if (townName.isNotEmpty()) {
             departure.setText(townName)
         }
-        serverError.text = getString(message)
+        tvError.text = getString(message)
     }
 
     private fun showLoading(townName: String) = with(binding) {
         loading.isVisible = true
         offers.isVisible = false
-        serverError.isVisible = false
-        noInternet.isVisible = false
+        tvError.isVisible = false
         if (townName.isNotEmpty()) {
             departure.setText(townName)
         }
