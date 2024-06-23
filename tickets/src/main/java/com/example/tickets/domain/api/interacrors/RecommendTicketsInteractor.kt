@@ -4,6 +4,6 @@ import com.example.tickets.domain.models.RecommendTicket
 import com.example.tickets.domain.models.SearchResultData
 import kotlinx.coroutines.flow.Flow
 
-interface CheckedTicketsInteractor {
+interface RecommendTicketsInteractor {
     suspend fun getRecommendTickets(): Flow<SearchResultData<List<RecommendTicket>>>
 }
