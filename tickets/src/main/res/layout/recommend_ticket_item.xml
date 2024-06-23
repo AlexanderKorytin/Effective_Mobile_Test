@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/grey1"
+    android:paddingTop="@dimen/_8dp"
+    android:paddingEnd="@dimen/_8dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ic_recommendation_container"
+        android:layout_width="@dimen/_24dp"
+        android:layout_height="@dimen/_24dp"
+        app:cardCornerRadius="@dimen/_12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ic_circle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/ic_sochi" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/company_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:paddingStart="@dimen/_8dp"
+        android:textColor="@color/white"
+        android:textFontWeight="600"
+        android:textSize="@dimen/_16sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@id/ic_recommendation_container"
+        app:layout_constraintTop_toTopOf="@id/ic_recommendation_container"
+        tools:text="@string/sochi" />
+
+    <TextView
+        android:id="@+id/time_range"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:maxLines="1"
+        android:paddingStart="@dimen/_8dp"
+        android:text="@string/popular_destination"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="@dimen/_14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ic_recommendation_container"
+        app:layout_constraintTop_toBottomOf="@id/company_name" />
+
+    <ImageView
+        android:id="@+id/ic_arrow"
+        android:layout_width="@dimen/_16dp"
+        android:layout_height="@dimen/_16dp"
+        android:background="@drawable/ic_arrow"
+        app:layout_constraintBottom_toBottomOf="@id/company_name"
+        app:layout_constraintEnd_toEndOf="@id/time_range"
+        app:layout_constraintTop_toTopOf="@id/company_name" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:paddingEnd="@dimen/_1dp"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/_14sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@id/ic_arrow"
+        app:layout_constraintEnd_toStartOf="@id/ic_arrow"
+        app:layout_constraintTop_toTopOf="@id/ic_arrow"
+        tools:text="2 232 ₽" />
+
+    <View
+        android:id="@+id/recommendation_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_8dp"
+        android:background="@color/grey5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time_range" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

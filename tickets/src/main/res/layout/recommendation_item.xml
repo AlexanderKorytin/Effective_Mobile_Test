@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/grey3"
+    android:paddingTop="@dimen/_8dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ic_recommendation_container"
+        android:layout_width="@dimen/_40dp"
+        android:layout_height="@dimen/_40dp"
+        app:cardCornerRadius="@dimen/_8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ic_recommendation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/ic_sochi"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/town_name_recommendation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/_8dp"
+        android:fontFamily="@font/sf_pro_display_medium"
+        android:textFontWeight="600"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16sp"
+        app:layout_constraintStart_toEndOf="@id/ic_recommendation_container"
+        app:layout_constraintTop_toTopOf="@id/ic_recommendation_container"
+        tools:text="@string/sochi"/>
+
+    <TextView
+        android:id="@+id/label_recommendation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/_8dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:textFontWeight="400"
+        android:textSize="@dimen/_14sp"
+        android:textColor="@color/grey5"
+        app:layout_constraintStart_toEndOf="@id/ic_recommendation_container"
+        app:layout_constraintTop_toBottomOf="@id/town_name_recommendation"
+        android:text="@string/popular_destination"/>
+
+    <View
+        android:id="@+id/recommendation_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/grey5"
+        android:layout_marginTop="@dimen/_8dp"
+        app:layout_constraintTop_toBottomOf="@id/ic_recommendation_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
