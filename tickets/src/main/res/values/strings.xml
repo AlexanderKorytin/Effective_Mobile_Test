@@ -6,4 +6,19 @@
     <string name="departure_hint">Откуда - Москва</string>
     <string name="arrival_hint">Куда - Турция</string>
     <string name="music_fly">Музыкально отлететь</string>
+    <string name="difficult_route">Сложный\nмаршрут</string>
+    <string name="anywhere">Куда угодно</string>
+    <string name="weekends">Выходные</string>
+    <string name="hot_tickets">Горячие\nбилеты</string>
+    <string name="istanbul">Стамбул</string>
+    <string name="phuket">Пхукет</string>
+    <string name="sochi">Сочи</string>
+    <string name="popular_destination">Популярное направление</string>
+    <string name="fragment_placeholder">Этот экран еще в разработке</string>
+    <string name="back">обратно</string>
+    <string name="type_text">1, эконом</string>
+    <string name="settings">настройки</string>
+    <string name="direct_flights">Прямые рейсы</string>
+    <string name="show_all_tickets">Посмотреть все билеты</string>
+    <string name="subscribe_price">Подписка на цену</string>
 </resources>
