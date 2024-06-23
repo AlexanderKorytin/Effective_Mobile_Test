@@ -9,5 +9,30 @@
         android:id="@+id/mainFragment"
         android:name="com.example.tickets.presentation.ui.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_placeHolderFragment"
+            app:destination="@id/placeHolderFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/placeHolderFragment"
+        android:name="com.example.tickets.presentation.ui.PlaceHolderFragment"
+        android:label="fragment_place_holder"
+        tools:layout="@layout/fragment_place_holder" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.tickets.presentation.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>
