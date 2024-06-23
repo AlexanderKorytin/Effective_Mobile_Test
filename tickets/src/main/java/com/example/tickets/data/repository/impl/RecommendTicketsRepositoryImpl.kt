@@ -3,7 +3,7 @@ package com.example.tickets.data.repository.impl
 import com.example.data.client.api.NetworkClient
 import com.example.tickets.R
 import com.example.tickets.data.convrtors.map
-import com.example.tickets.domain.api.repositories.CheckedTicketsRepository
+import com.example.tickets.domain.api.repositories.RecommendTicketsRepository
 import com.example.tickets.domain.models.RecommendTicket
 import com.example.tickets.domain.models.SearchResultData
 import kotlinx.coroutines.flow.Flow
@@ -12,7 +12,7 @@ import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 
-class CheckedTicketsRepositoryImpl(private val client: NetworkClient) : CheckedTicketsRepository {
+class RecommendTicketsRepositoryImpl(private val client: NetworkClient) : RecommendTicketsRepository {
     override suspend fun getRecommendTickets(): Flow<SearchResultData<List<RecommendTicket>>> =
         flow {
             val searchResult = client.getRecommendTickets()
@@ -20,7 +20,9 @@ class CheckedTicketsRepositoryImpl(private val client: NetworkClient) : CheckedT
             val error = searchResult.exceptionOrNull()
             when {
                 data != null -> {
-                    emit(SearchResultData.Data(data.tickets.map { map(it) }))
+                    emit(SearchResultData.Data(data.tickets.map { map(it) }.mapIndexed { index, recommendTicket ->
+                        setIconId(recommendTicket, index)
+                    }))
                 }
 
                 error is ConnectException -> {
@@ -36,4 +38,21 @@ class CheckedTicketsRepositoryImpl(private val client: NetworkClient) : CheckedT
                 }
             }
         }
+    
+    private fun setIconId(ticket: RecommendTicket, index: Int): RecommendTicket {
+       return when(index){
+            0 -> {
+                ticket.copy(iconId = 1)
+            }
+            1 -> {
+                ticket.copy(iconId = 2)
+            }
+            2 -> {
+                ticket.copy(iconId = 3)
+            }
+            else -> {
+                ticket.copy(iconId = 4)
+            }
+        }
+    }
 }
