@@ -1,163 +1,506 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".presentation.ui.MainFragment">
+    android:orientation="vertical"
+    android:paddingTop="@dimen/_24dp">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/left_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/_16dp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.ui.MainFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/right_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/_16dp" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_16dp" />
 
-    <TextView
-        android:id="@+id/main_fragment_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_28dp"
-        android:fontFamily="@font/sf_pro_display_medium"
-        android:gravity="center"
-        android:text="@string/main_fragment_title"
-        android:textAllCaps="false"
-        android:textColor="@color/grey7"
-        android:textFontWeight="600"
-        android:textSize="@dimen/_22sp"
-        app:layout_constraintEnd_toEndOf="@id/right_guideline"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/main_fragment_title" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_16dp" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/editText_container"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_36dp"
-        app:cardBackgroundColor="@color/grey3"
-        app:cardCornerRadius="@dimen/_16dp"
-        app:layout_constraintEnd_toEndOf="@id/right_guideline"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@id/main_fragment_title">
+        <TextView
+            android:id="@+id/main_fragment_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_28dp"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:gravity="center"
+            android:text="@string/main_fragment_title"
+            android:textAllCaps="false"
+            android:textColor="@color/grey7"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_22sp"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline"
+            app:layout_constraintStart_toStartOf="@id/left_guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/main_fragment_title" />
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_16dp"
-            android:background="@color/grey4"
-            app:cardCornerRadius="@dimen/_16dp">
+            android:id="@+id/editText_container"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_36dp"
+            app:cardBackgroundColor="@color/grey3"
+            app:cardCornerRadius="@dimen/_16dp"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline"
+            app:layout_constraintStart_toStartOf="@id/left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/main_fragment_title">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/_16dp"
                 android:background="@color/grey4"
+                app:cardCornerRadius="@dimen/_16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/grey4"
+                    android:paddingVertical="@dimen/_8dp">
+
+                    <ImageView
+                        android:id="@+id/ic_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_search"
+                        android:backgroundTint="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/black" />
+
+                    <EditText
+                        android:id="@+id/departure"
+                        style="@style/MainEditTextStyle"
+                        android:layout_width="@dimen/_0dp"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/divider"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:background="@color/grey3"
+                        android:backgroundTint="@color/grey3"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ic_search"
+                        app:layout_constraintTop_toBottomOf="@id/departure" />
+
+                    <EditText
+                        android:id="@+id/arrival"
+                        style="@style/MainEditTextStyle"
+                        android:layout_width="@dimen/_0dp"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/divider"
+                        app:layout_constraintTop_toBottomOf="@id/divider" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/music_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_36dp"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:text="@string/music_fly"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_22sp"
+            app:layout_constraintStart_toStartOf="@id/left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/editText_container" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/offers"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toStartOf="@id/right_guideline"
+            app:layout_constraintStart_toEndOf="@id/left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/music_title"
+            tools:listitem="@layout/offer_item" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_68dp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textColor="@color/grey7"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_22sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline"
+            app:layout_constraintStart_toStartOf="@id/left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/music_title" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_68dp"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline"
+            app:layout_constraintStart_toStartOf="@id/left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/music_title" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bottom_sheet_back"
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_guideline_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_16dp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="@dimen/_38dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_16dp"
+            android:background="@drawable/line_5_dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/et_container"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24dp"
+            android:background="@color/grey3"
+            app:cardCornerRadius="@dimen/_16dp"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline_sheet"
+            app:layout_constraintStart_toStartOf="@id/left_guideline_sheet"
+            app:layout_constraintTop_toBottomOf="@id/line">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/et_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey3"
+                android:paddingHorizontal="@dimen/_16dp"
                 android:paddingVertical="@dimen/_8dp">
 
                 <ImageView
-                    android:id="@+id/ic_search"
+                    android:id="@+id/ic_plane"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/ic_plane_side"
+                    android:backgroundTint="@color/grey5"
+                    app:layout_constraintStart_toStartOf="@id/et_layout"
+                    app:layout_constraintTop_toTopOf="@id/et_layout"
+                    app:tint="@color/black" />
+
+                <View
+                    android:id="@+id/divider_sheet"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:background="@color/grey4"
+                    android:backgroundTint="@color/grey4"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@id/et_layout"
+                    app:layout_constraintStart_toStartOf="@id/et_layout"
+                    app:layout_constraintTop_toBottomOf="@id/ic_plane" />
+
+                <ImageView
+                    android:id="@+id/ic_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8dp"
                     android:background="@drawable/ic_search"
-                    android:backgroundTint="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:backgroundTint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/et_layout"
+                    app:layout_constraintStart_toStartOf="@id/et_layout"
+                    app:layout_constraintTop_toBottomOf="@id/divider_sheet"
                     app:tint="@color/black" />
 
                 <EditText
-                    android:id="@+id/departure"
+                    android:id="@+id/departure_sheet"
                     style="@style/MainEditTextStyle"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/divider"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginStart="@dimen/_8dp"
+                    android:focusable="false"
+                    android:hint=""
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/_0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_plane"
+                    app:layout_constraintStart_toEndOf="@id/ic_plane"
+                    app:layout_constraintTop_toTopOf="@id/ic_plane"
+                    tools:text="Минск" />
 
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="@dimen/_16dp"
-                    android:background="@color/grey3"
-                    android:backgroundTint="@color/grey3"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/ic_search"
-                    app:layout_constraintTop_toBottomOf="@id/departure" />
 
                 <EditText
-                    android:id="@+id/arrival"
+                    android:id="@+id/arrival_sheet"
                     style="@style/MainEditTextStyle"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="@dimen/_8dp"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:paddingVertical="@dimen/_0dp"
+                    app:layout_constraintBottom_toBottomOf="@id/ic_find"
+                    app:layout_constraintStart_toEndOf="@id/ic_find"
+                    app:layout_constraintTop_toTopOf="@id/ic_find" />
+
+                <ImageView
+                    android:id="@+id/ic_clear_sheet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_close"
+                    android:backgroundTint="@color/grey6"
+                    app:layout_constraintBottom_toBottomOf="@id/arrival_sheet"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/divider"
-                    app:layout_constraintTop_toBottomOf="@id/divider" />
+                    app:layout_constraintTop_toTopOf="@id/arrival_sheet"
+                    app:tint="@color/black" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:id="@+id/difficult_route_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/left_guideline_sheet"
+            app:layout_constraintTop_toBottomOf="@id/et_container">
 
-    <TextView
-        android:id="@+id/music_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_36dp"
-        android:fontFamily="@font/sf_pro_display_medium"
-        android:text="@string/music_fly"
-        android:textColor="@color/white"
-        android:textFontWeight="600"
-        android:textSize="@dimen/_22sp"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@id/editText_container" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/offers"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="@id/right_guideline"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@id/music_title"
-        tools:listitem="@layout/offer_item" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/difficult_route_card"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="@dimen/_48dp"
+                android:backgroundTint="@color/green"
+                app:cardCornerRadius="@dimen/_8dp">
 
-    <TextView
-        android:id="@+id/tv_error"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_68dp"
-        android:gravity="center"
-        android:textAllCaps="false"
-        android:textColor="@color/grey7"
-        android:textFontWeight="600"
-        android:textSize="@dimen/_22sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@id/right_guideline"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@id/music_title" />
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_68dp"
-        app:layout_constraintEnd_toEndOf="@id/right_guideline"
-        app:layout_constraintStart_toStartOf="@id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@id/music_title" />
+                <ImageView
+                    android:id="@+id/ic_difficult_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_route" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/difficult_route_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_8dp"
+                android:text="@string/difficult_route"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="@dimen/_14sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/anywhere_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/difficult_route_layout"
+            app:layout_constraintTop_toBottomOf="@id/et_container">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/anywhere_card"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="@dimen/_48dp"
+                android:backgroundTint="@color/blue"
+                app:cardCornerRadius="@dimen/_8dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_anywhere_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_ball" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/anywhere_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_8dp"
+                android:text="@string/anywhere"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="@dimen/_14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekends_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/anywhere_layout"
+            app:layout_constraintTop_toBottomOf="@id/et_container">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekends_card"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="@dimen/_48dp"
+                android:backgroundTint="@color/dark_blue"
+                app:cardCornerRadius="@dimen/_8dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_weekends_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_calendar" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/weekends_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_8dp"
+                android:text="@string/weekends"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="@dimen/_14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hot_tickets_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/weekends_layout"
+            app:layout_constraintTop_toBottomOf="@id/et_container">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/hot_tickets_card"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="@dimen/_48dp"
+                android:backgroundTint="@color/red"
+                app:cardCornerRadius="@dimen/_8dp">
+
+
+                <ImageView
+                    android:id="@+id/hot_tickets_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_fire" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/hot_tickets_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:fontFamily="@font/sf_pro_display_regular"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_8dp"
+                android:text="@string/hot_tickets"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="@dimen/_14sp" />
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30dp"
+            android:backgroundTint="@color/grey3"
+            app:cardCornerRadius="@dimen/_16dp"
+            app:layout_constraintEnd_toEndOf="@id/right_guideline_sheet"
+            app:layout_constraintStart_toStartOf="@id/left_guideline_sheet"
+            app:layout_constraintTop_toBottomOf="@id/difficult_route_layout">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommendations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/recommendation_item" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
