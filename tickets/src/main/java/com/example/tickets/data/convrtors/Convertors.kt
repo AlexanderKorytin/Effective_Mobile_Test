@@ -4,8 +4,10 @@ import android.icu.text.DecimalFormat
 import com.example.data.models.main.Offer
 import com.example.data.models.search.TicketsOffer
 import com.example.data.models.tickets.Ticket
+import com.example.tickets.data.models.RecommendationsItemDto
 import com.example.tickets.domain.models.Badge
 import com.example.tickets.domain.models.OfferData
+import com.example.tickets.domain.models.RecommendItem
 import com.example.tickets.domain.models.RecommendTicket
 import com.example.tickets.domain.models.TicketItem
 import java.text.SimpleDateFormat
@@ -18,6 +20,14 @@ fun map(dto: Offer): OfferData {
         title = dto.title,
         town = dto.town,
         price = getPrice(dto.price.value)
+    )
+}
+
+fun map(dto: RecommendationsItemDto): RecommendItem {
+    return RecommendItem(
+        icon = dto.icon,
+        destinationMane = dto.destinationMane,
+        label = dto.label
     )
 }
 
