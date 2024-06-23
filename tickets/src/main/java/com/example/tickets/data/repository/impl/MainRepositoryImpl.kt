@@ -6,6 +6,7 @@ import com.example.tickets.data.convrtors.map
 import com.example.tickets.data.storage.api.DataStorage
 import com.example.tickets.domain.api.repositories.MainRepository
 import com.example.tickets.domain.models.OfferData
+import com.example.tickets.domain.models.RecommendItem
 import com.example.tickets.domain.models.SearchResultData
 import com.example.tickets.domain.models.Town
 import kotlinx.coroutines.flow.Flow
@@ -50,5 +51,9 @@ class MainRepositoryImpl(private val client: NetworkClient, private val storage:
 
     override fun setDepartureTown(town: Town) {
         storage.setDepartureTown(town.name)
+    }
+
+    override fun getRecommendationsList(): List<RecommendItem> {
+        return storage.getRecommendationsList().map { map(it) }
     }
 }
