@@ -43,15 +43,19 @@ fun map(dto: Ticket): TicketItem {
     return TicketItem(
         badge = getBadge(dto.badge),
         price = getPrice(dto.price.value),
-        departureDate = dto.departure.date,
-        departureAirport = dto.departure.airport,
-        arrivalDate = dto.arrival.date,
+        departureTime = getTime(dto.departure.date),
+        departureAirport = getTime(dto.departure.airport),
+        arrivalTime = dto.arrival.date,
         arrivalAirport = dto.arrival.airport,
         duration = getDuration(dto.departure.date, dto.arrival.date),
         hasTransfer = dto.hasTransfer
     )
 }
 
+private fun getTime(date: String): String {
+    val time = date.split(DATE_DELIMITER)[1]
+    return time.take(TIME_SIZE)
+}
 private fun getBadge(badge: String?): Badge {
     return if (badge == null) {
         Badge.EMPTY
@@ -93,3 +97,5 @@ private const val EMPTY = " "
 private const val DATE_DELIMITER = "T"
 private const val TO_HOURS = 60
 private const val EMPTY_TIME = 0L
+private const val TIME_SIZE = 5
+
