@@ -31,5 +31,4 @@ private class OfferDiffUtil : DiffUtil.ItemCallback<OfferData>() {
                 oldItem.title == newItem.title &&
                 oldItem.price == newItem.price
     }
-
 }

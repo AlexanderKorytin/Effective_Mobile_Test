@@ -13,16 +13,16 @@ class OfferViewHolder(private val parentViewBinding: OfferItemBinding) :
     RecyclerView.ViewHolder(parentViewBinding.root) {
 
     private val radiusIconTrackPx = dpToPixels(RADIUS_DP, parentViewBinding.root.context)
-    fun bind(offerData: OfferData) {
+    fun bind(offerData: OfferData) = with(parentViewBinding){
         val price = "от ${offerData.price}"
-        parentViewBinding.offerItemPrice.text = price
-        parentViewBinding.offerItemTitle.text = offerData.title
-        parentViewBinding.offerItemTown.text = offerData.town
+        offerItemPrice.text = price
+        offerItemTitle.text = offerData.title
+        offerItemTown.text = offerData.town
         Glide
-            .with(parentViewBinding.root.context)
+            .with(root.context)
             .load(getImage(offerData.id))
             .transform(CenterCrop(), RoundedCorners(radiusIconTrackPx))
-            .into(parentViewBinding.icImageOffer)
+            .into(icImageOffer)
     }
 
     private fun getImage(id: Int): Int {
