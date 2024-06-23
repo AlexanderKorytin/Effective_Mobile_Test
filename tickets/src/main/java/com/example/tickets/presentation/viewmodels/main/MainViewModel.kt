@@ -6,9 +6,10 @@ import com.example.tickets.domain.api.interacrors.MainInteractor
 import com.example.tickets.domain.models.OfferData
 import com.example.tickets.domain.models.SearchResultData
 import com.example.tickets.domain.models.Town
-import com.example.tickets.presentation.models.main.MainScreeState
+import com.example.tickets.presentation.models.main.MainScreenState
 import com.example.tickets.presentation.models.main.MainScreenStateResponse
 import com.example.util.debounce
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -16,17 +17,18 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val interactor: MainInteractor) : ViewModel() {
-    private var _mainScreenState: MutableStateFlow<MainScreeState> =
-        MutableStateFlow(MainScreeState())
-    val mainScreenState: StateFlow<MainScreeState> = _mainScreenState.asStateFlow()
+    private var _mainScreenState: MutableStateFlow<MainScreenState> =
+        MutableStateFlow(MainScreenState())
+    val mainScreenState: StateFlow<MainScreenState> = _mainScreenState.asStateFlow()
     private val savedTownName = debounce<String>(DELAY, viewModelScope, true) { name ->
         setTownToStorage(name)
     }
 
     fun getMainData() {
         val town = interactor.getCurrentTown()
+        val listRecommend = interactor.getRecommendationsList()
         _mainScreenState.update {
-            it.copy(departureTown = town)
+            it.copy(departureTown = town, listRecommend = listRecommend)
         }
         viewModelScope.launch {
             interactor.getMainData().collect { result ->
@@ -55,7 +57,7 @@ class MainViewModel(private val interactor: MainInteractor) : ViewModel() {
 
             is SearchResultData.Empty -> {
                 _mainScreenState.update {
-                    MainScreeState().copy(data = MainScreenStateResponse.Error(message = result.message))
+                    MainScreenState().copy(data = MainScreenStateResponse.Error(message = result.message))
                 }
             }
 
@@ -72,6 +74,11 @@ class MainViewModel(private val interactor: MainInteractor) : ViewModel() {
                 }
             }
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelScope.cancel()
     }
 }
 
