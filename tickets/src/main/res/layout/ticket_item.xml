@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_16dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/container_ticket_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10dp"
         app:cardBackgroundColor="@color/grey1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,11 +137,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/sf_pro_display_regular"
+                android:text="@string/arrival_evening"
                 android:textColor="@color/white"
                 android:textFontWeight="400"
                 android:textSize="@dimen/_14sp"
-                android:textStyle="italic"
-                tools:text="Прилет вечером" />
+                android:textStyle="italic" />
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 
