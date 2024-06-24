@@ -24,4 +24,7 @@
     <string name="filter">Фильтр</string>
     <string name="price_chart">График цен</string>
     <string name="without_transfers">Без пересадок</string>
+    <string name="one_person">1 пасажир</string>
+    <string name="end_duration">ч в пути</string>
+    <string name="arrival_evening">Прилет вечером</string>
 </resources>
