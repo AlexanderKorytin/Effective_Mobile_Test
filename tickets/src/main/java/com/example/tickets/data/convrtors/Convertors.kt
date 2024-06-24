@@ -44,8 +44,8 @@ fun map(dto: Ticket): TicketItem {
         badge = getBadge(dto.badge),
         price = getPrice(dto.price.value),
         departureTime = getTime(dto.departure.date),
-        departureAirport = getTime(dto.departure.airport),
-        arrivalTime = dto.arrival.date,
+        departureAirport = dto.departure.airport,
+        arrivalTime = getTime(dto.arrival.date),
         arrivalAirport = dto.arrival.airport,
         duration = getDuration(dto.departure.date, dto.arrival.date),
         hasTransfer = dto.hasTransfer
@@ -56,6 +56,7 @@ private fun getTime(date: String): String {
     val time = date.split(DATE_DELIMITER)[1]
     return time.take(TIME_SIZE)
 }
+
 private fun getBadge(badge: String?): Badge {
     return if (badge == null) {
         Badge.EMPTY
