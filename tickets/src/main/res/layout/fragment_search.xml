@@ -25,7 +25,7 @@
         android:id="@+id/et_container"
         android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_48dp"
+        android:layout_marginTop="@dimen/_80dp"
         android:background="@color/grey2"
         app:cardCornerRadius="@dimen/_16dp"
         app:layout_constraintEnd_toEndOf="@id/right_guideline"
