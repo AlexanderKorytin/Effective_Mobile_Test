@@ -17,8 +17,10 @@ coroutines = "1.7.3"
 glide = "4.16.0"
 retrofit = "2.9.0"
 koin = "3.5.3"
+json = "2.11.0"
 
 [libraries]
+json = {group = "com.google.code.gson", name = "gson", version.ref = "json"}
 koin = {group = "io.insert-koin", name = "koin-android", version.ref = "koin"}
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }

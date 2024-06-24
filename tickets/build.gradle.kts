@@ -40,6 +40,7 @@ dependencies {
     implementation(project(path = ":util"))
     implementation(project(path = ":network"))
     implementation(libs.retrofit)
+    implementation(libs.json)
     implementation(libs.coroutines)
     implementation(libs.koin)
     implementation(libs.glide)
