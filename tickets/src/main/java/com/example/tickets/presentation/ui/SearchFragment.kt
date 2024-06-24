@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -16,24 +17,28 @@ import com.example.tickets.domain.models.RecommendTicket
 import com.example.tickets.presentation.adapters.RecommendTicketsAdapter
 import com.example.tickets.presentation.models.search.SearchScreenState
 import com.example.tickets.presentation.models.search.SearchScreenStateResponse
+import com.example.tickets.presentation.models.tickets.TicketInfo
 import com.example.tickets.presentation.viewmodels.search.SearchViewModel
 import com.example.util.BindingFragment
+import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 
 class SearchFragment : BindingFragment<FragmentSearchBinding>() {
 
     private val viewModel by viewModel<SearchViewModel> {
-        parametersOf(arguments?.getString(DEPARTURE), arguments?.getString(ARRIVAL) ?: "")
+        parametersOf(arguments?.getString(DEPARTURE) ?: "", arguments?.getString(ARRIVAL) ?: "")
     }
     private val adapter = RecommendTicketsAdapter()
     private val thereDate = Calendar.getInstance()
     private val backDate = Calendar.getInstance()
-
+    private var nameMonth = getThereDate(thereDate)
     override fun createBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -128,6 +133,20 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
         icClear.setOnClickListener {
             findNavController().navigateUp()
         }
+        containerShowTickets.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_searchFragment_to_allTicketsFragment, bundleOf(
+                    TICKET_INFO to Gson().toJson(
+                        TicketInfo(
+                            departureTown = binding.departure.text.toString(),
+                            arrivalTown = binding.arrival.text.toString(),
+                            ticketSettings = binding.ticketInfo.text.toString(),
+                            dateDeparture = nameMonth
+                        )
+                    )
+                )
+            )
+        }
     }
 
     private fun changedThereDate(date: Calendar) {
@@ -136,6 +155,7 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
                 date.set(Calendar.YEAR, year)
                 date.set(Calendar.MONTH, month)
                 date.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                nameMonth = getThereDate(date)
                 viewModel.setThereDate(date)
             }
         DatePickerDialog(
@@ -162,6 +182,12 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
             date.get(Calendar.MONTH),
             date.get(Calendar.DAY_OF_MONTH)
         ).show()
+    }
+
+    private fun getThereDate(date: Calendar): String {
+        val formaterDayMon = SimpleDateFormat("dd MMMM", Locale.getDefault())
+        val nameMonth = formaterDayMon.format(date.time)
+        return nameMonth
     }
 }
 
