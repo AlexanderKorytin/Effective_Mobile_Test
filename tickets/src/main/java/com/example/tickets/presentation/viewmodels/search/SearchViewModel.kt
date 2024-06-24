@@ -18,8 +18,8 @@ import java.util.Locale
 
 class SearchViewModel(
     private val interactor: RecommendTicketsInteractor,
-    private val departureName: String,
-    private val arrivalName: String
+    departureName: String,
+    arrivalName: String
 ) : ViewModel() {
     private var thereDate = Calendar.getInstance()
     private var backDate = Calendar.getInstance()
@@ -96,9 +96,9 @@ class SearchViewModel(
     }
 
     fun destinationChanged() {
-        val bufer = departureTown
+        val buffer = departureTown
         departureTown = arrivalTown
-        arrivalTown = bufer
+        arrivalTown = buffer
         _searchScreenState.update {
             it.copy(
                 arrivalTown = arrivalTown,
