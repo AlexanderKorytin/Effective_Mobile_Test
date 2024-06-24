@@ -13,7 +13,7 @@ class OfferViewHolder(private val parentViewBinding: OfferItemBinding) :
     RecyclerView.ViewHolder(parentViewBinding.root) {
 
     private val radiusIconTrackPx = dpToPixels(RADIUS_DP, parentViewBinding.root.context)
-    fun bind(offerData: OfferData) = with(parentViewBinding){
+    fun bind(offerData: OfferData) = with(parentViewBinding) {
         val price = "от ${offerData.price}"
         offerItemPrice.text = price
         offerItemTitle.text = offerData.title
