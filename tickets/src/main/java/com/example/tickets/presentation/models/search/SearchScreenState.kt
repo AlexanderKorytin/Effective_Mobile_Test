@@ -1,7 +1,5 @@
 package com.example.tickets.presentation.models.search
 
-import kotlin.math.E
-
 data class SearchScreenState(
     val data: SearchScreenStateResponse = SearchScreenStateResponse.IsLoading,
     val departureTown: String = EMPTY_NAME,

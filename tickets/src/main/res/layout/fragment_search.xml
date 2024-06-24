@@ -57,8 +57,8 @@
                 style="@style/MainEditTextStyle"
                 android:layout_width="@dimen/_0dp"
                 android:layout_height="wrap_content"
-                android:focusable="false"
                 android:enabled="false"
+                android:focusable="false"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/divider"
@@ -92,9 +92,9 @@
                 style="@style/MainEditTextStyle"
                 android:layout_width="@dimen/_0dp"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:focusable="false"
                 android:textColor="@color/white"
-                android:enabled="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/divider"
@@ -352,10 +352,10 @@
                 android:id="@+id/tickets"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginTop="@dimen/_8dp"
                 android:background="@color/grey1"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 
         </LinearLayout>

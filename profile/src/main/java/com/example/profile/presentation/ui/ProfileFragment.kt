@@ -15,7 +15,5 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>() {
         return FragmentProfileBinding.inflate(inflater, container, false)
     }
 
-    companion object {
-
-    }
+    companion object
 }

@@ -1,6 +1,5 @@
 package com.example.tickets.di
 
-import com.example.tickets.presentation.models.tickets.TicketInfo
 import com.example.tickets.presentation.viewmodels.main.MainViewModel
 import com.example.tickets.presentation.viewmodels.search.SearchViewModel
 import com.example.tickets.presentation.viewmodels.tickets.AllTicketsViewModel
@@ -12,7 +11,11 @@ val ticketsViewModelModule = module {
         MainViewModel(interactor = get())
     }
     viewModel<SearchViewModel> { (departureName: String, arrivalName: String) ->
-        SearchViewModel(interactor = get(), departureName = departureName, arrivalName = arrivalName)
+        SearchViewModel(
+            interactor = get(),
+            departureName = departureName,
+            arrivalName = arrivalName
+        )
     }
     viewModel<AllTicketsViewModel> { (ticketInfo: String) ->
         AllTicketsViewModel(interactor = get(), json = get(), ticketInfo = ticketInfo)

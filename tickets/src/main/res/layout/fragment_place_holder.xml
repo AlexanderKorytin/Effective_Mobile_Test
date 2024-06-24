@@ -10,25 +10,25 @@
         android:id="@+id/placeholder_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_30dp"
-        android:layout_marginStart="@dimen/_16dp"
         android:layout_gravity="start|top"
-        android:src="@drawable/ic_back"/>
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_30dp"
+        android:src="@drawable/ic_back" />
 
     <ImageView
         android:layout_width="@dimen/_64dp"
         android:layout_height="@dimen/_64dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/_242dp"
         android:scaleType="fitCenter"
-        android:layout_gravity="center_horizontal"
         android:src="@drawable/ic_placeholder" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:gravity="center"
         android:paddingTop="@dimen/_8dp"
-        android:layout_gravity="center_horizontal"
         android:text="@string/fragment_placeholder" />
 
 </LinearLayout>

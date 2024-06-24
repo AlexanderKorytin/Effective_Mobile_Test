@@ -18,7 +18,7 @@ class RecommendationsAdapter(private val onClick: (RecommendItem) -> Unit) :
 
     override fun onBindViewHolder(holder: RecommendationsViewHolder, position: Int) {
         holder.bind(currentList[position])
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             onClick(currentList[holder.adapterPosition])
         }
     }

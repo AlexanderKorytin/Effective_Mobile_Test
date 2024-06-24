@@ -15,7 +15,5 @@ class LocationFragment : BindingFragment<FragmentLocationBinding>() {
         return FragmentLocationBinding.inflate(inflater, container, false)
     }
 
-    companion object {
-
-    }
+    companion object
 }

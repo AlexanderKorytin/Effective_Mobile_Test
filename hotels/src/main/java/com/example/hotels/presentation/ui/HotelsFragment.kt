@@ -15,7 +15,5 @@ class HotelsFragment : BindingFragment<FragmentHotelsBinding>() {
         return FragmentHotelsBinding.inflate(inflater, container, false)
     }
 
-    companion object {
-
-    }
+    companion object
 }

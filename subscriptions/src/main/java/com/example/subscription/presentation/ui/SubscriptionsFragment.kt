@@ -15,7 +15,5 @@ class SubscriptionsFragment : BindingFragment<FragmentSubscriptionsBinding>() {
         return FragmentSubscriptionsBinding.inflate(inflater, container, false)
     }
 
-    companion object {
-
-    }
+    companion object
 }

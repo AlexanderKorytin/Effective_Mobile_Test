@@ -43,7 +43,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>() {
     private var backCallBack: OnBackPressedCallback? = null
     private val navigateToSearch = debounce<String>(DELAY_NAV, lifecycleScope, true) { text ->
         if (text.isNotEmpty()) {
-           hideKeyBoard()
+            hideKeyBoard()
             backCallBack?.remove()
             findNavController().navigate(
                 R.id.action_mainFragment_to_searchFragment, bundleOf(

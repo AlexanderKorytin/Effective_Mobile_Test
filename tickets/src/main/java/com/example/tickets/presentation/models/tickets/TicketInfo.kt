@@ -7,6 +7,6 @@ data class TicketInfo(
     val arrivalTown: String = EMPTY,
     val ticketSettings: String = EMPTY,
     val dateDeparture: String = EMPTY
-): Serializable
+) : Serializable
 
 private const val EMPTY = ""

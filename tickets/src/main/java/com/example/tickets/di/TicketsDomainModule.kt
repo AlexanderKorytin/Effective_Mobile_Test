@@ -1,17 +1,17 @@
 package com.example.tickets.di
 
 import com.example.tickets.data.repository.impl.AllTicketsRepositoryImpl
-import com.example.tickets.data.repository.impl.RecommendTicketsRepositoryImpl
 import com.example.tickets.data.repository.impl.MainRepositoryImpl
+import com.example.tickets.data.repository.impl.RecommendTicketsRepositoryImpl
 import com.example.tickets.domain.api.interacrors.AllTicketsInteractor
-import com.example.tickets.domain.api.interacrors.RecommendTicketsInteractor
 import com.example.tickets.domain.api.interacrors.MainInteractor
+import com.example.tickets.domain.api.interacrors.RecommendTicketsInteractor
 import com.example.tickets.domain.api.repositories.AllTicketsRepository
-import com.example.tickets.domain.api.repositories.RecommendTicketsRepository
 import com.example.tickets.domain.api.repositories.MainRepository
+import com.example.tickets.domain.api.repositories.RecommendTicketsRepository
 import com.example.tickets.domain.impl.AllTicketsInteractorImpl
-import com.example.tickets.domain.impl.RecommendTicketsInteractorImpl
 import com.example.tickets.domain.impl.MainInteractorImpl
+import com.example.tickets.domain.impl.RecommendTicketsInteractorImpl
 import org.koin.dsl.module
 
 val ticketsDomainModule = module {
